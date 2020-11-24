@@ -9,7 +9,7 @@ public class doorHit : MonoBehaviour
 
     void OnCollisionEnter(Collision collide)
     {
-        if (collide.gameObject.name == "player")
+        if (collide.gameObject.GetComponent<GameCharacter>().characterType.ToLower().Equals("player"))
         {
             SceneManager.LoadScene(destination);
         }

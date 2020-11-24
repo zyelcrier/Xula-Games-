@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerData : MonoBehaviour
+public class PlayerStat : GameCharacter
 {
     // Start is called before the first frame update
     void Start()
     {
-        this.name = "player";
+        this.characterType = "player";
     }
 
     // Update is called once per frame

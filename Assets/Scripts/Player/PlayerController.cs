@@ -6,10 +6,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Camera cam;
-    public LayerMask movementMask;
     PlayerMotor motor;
+    bool rotated = true;
+
+    Vector3 rotateDirection;
+
+    public LayerMask movementMask;
     public Transform bullterTransform;
     public GameObject bullet;
+    public Transform enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -37,15 +42,26 @@ public class PlayerController : MonoBehaviour
             motor.jump();
         }
 
-        if (Input.GetKeyDown("q"))
+        if (Input.GetKeyDown("q") && enemy != null)
+        {
+            rotateDirection = Vector3.RotateTowards(transform.forward, new Vector3(enemy.position.x, transform.position.y, enemy.position.z) - this.transform.position, 360, 100);
+            
+            transform.rotation = Quaternion.LookRotation(rotateDirection);
+
+            rotated = false;
+        }
+
+        if(rotated == false && Vector3.Angle(rotateDirection, transform.forward) < 1f)
         {
             GameObject bulletInstance = Object.Instantiate(bullet, bullterTransform.position, Quaternion.identity);
+            bulletInstance.GetComponent<BullterAttack>().attack(enemy);
+            rotated = true;
+        }
 
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, new Vector3(10, transform.position.y, 10) - this.transform.position, 360, 100);
-            
-            transform.rotation = Quaternion.LookRotation(newDirection);
-
-            bulletInstance.GetComponent<BullterAttack>().attack(new Vector3(10, 10, 10));
+        if (Input.GetKeyDown("z"))
+        {
+            GetComponent<PlayerStat>().takeDamage(10);
+            Debug.Log("kk");
         }
     }
 }
