@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public Transform bullterTransform;
     public GameObject bullet;
     public Transform enemy;
+    public GameObject redBox;
+    public Transform petSpawningPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +64,14 @@ public class PlayerController : MonoBehaviour
         {
             GetComponent<PlayerStat>().takeDamage(10);
             Debug.Log("kk");
+        }
+    }
+
+    public void spawnPet(string petType)
+    {
+        if(petType.ToLower().Equals("redbox"))
+        {
+            Instantiate(redBox, new Vector3(petSpawningPoint.position.x, petSpawningPoint.position.y, petSpawningPoint.position.z), Quaternion.identity);
         }
     }
 }

@@ -38,7 +38,7 @@ public class BullterAttack : MonoBehaviour
         fired = true;
 
         // Get the force direction
-        direction = new Vector3(target.position.x, target.position.y + target.gameObject.GetComponent<GameCharacter>().height,target.position.z) - this.transform.position;
+        direction = new Vector3(target.position.x, target.position.y,target.position.z) - this.transform.position;
     }
 
     private void OnCollisionEnter(Collision collision)

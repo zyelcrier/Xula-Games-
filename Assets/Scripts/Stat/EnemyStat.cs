@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyStat : GameCharacter
 {
+    public string enemyType;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class EnemyStat : GameCharacter
     override
     public void die()
     {
+        PlayerManager.instance.player.GetComponent<PlayerStat>().addCreature(this.enemyType);
         Destroy(gameObject);
     }
 }

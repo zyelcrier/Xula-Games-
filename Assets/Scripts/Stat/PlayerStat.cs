@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerStat : GameCharacter
 {
+    public List<string> creatureList = new List<string>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,13 @@ public class PlayerStat : GameCharacter
     void Update()
     {
         
+    }
+
+    public void addCreature(string creatureType)
+    {
+        if(!creatureList.Contains(creatureType))
+        {
+            creatureList.Add(creatureType);
+        }
     }
 }

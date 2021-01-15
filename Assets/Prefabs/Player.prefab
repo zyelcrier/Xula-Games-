@@ -30,6 +30,36 @@ Transform:
   m_Father: {fileID: 6760430364176099459}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2275059659097070307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7566968904079062079}
+  m_Layer: 0
+  m_Name: creatureSpawningPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7566968904079062079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2275059659097070307}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.56, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6760430364176099459}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6760430364176099457
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,6 +97,7 @@ Transform:
   - {fileID: 6760430364805399893}
   - {fileID: 139236673600459399}
   - {fileID: 8453642415263001300}
+  - {fileID: 7566968904079062079}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -140,6 +171,8 @@ MonoBehaviour:
   bullterTransform: {fileID: 139236673600459399}
   bullet: {fileID: 9210041734017954527, guid: 3cd0b17ecd417b747a937cf4485c27bc, type: 3}
   enemy: {fileID: 0}
+  redBox: {fileID: 6965667419006473308, guid: fdb5d67e57ac6d4489d50d2d7890e655, type: 3}
+  petSpawningPoint: {fileID: 7566968904079062079}
 --- !u!114 &6760430364176099519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +216,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   damage: 0
+  creatureList: []
 --- !u!1 &6760430364805399898
 GameObject:
   m_ObjectHideFlags: 0
